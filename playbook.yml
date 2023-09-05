@@ -60,7 +60,6 @@
       with_items:
         - path: '.config'
         - path: '.gitconfig'
-        - path: '.gitconfig.local'
         - path: '.gitconfig.agrigate'
         - path: '.gitignore'
         - path: '.ideavimrc'
