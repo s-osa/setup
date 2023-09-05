@@ -50,10 +50,10 @@
     - name: Clone dotfiles
       ansible.builtin.git:
         repo: https://github.com/s-osa/dotfiles.git
-        dest: '{{ ansible_env.HOME }}/src/s-osa/dotfiles'
+        dest: '{{ ansible_env.HOME }}/src/github.com/s-osa/dotfiles'
     - name: Generate dotfile symlinks
       file:
-        src: '{{ ansible_env.HOME}}/src/s-osa/dotfiles/home/{{ item.path }}'
+        src: '{{ ansible_env.HOME}}/src/github.com/s-osa/dotfiles/home/{{ item.path }}'
         dest: '{{ ansible_env.HOME}}/{{ item.path }}'
         state: link
         force: yes
