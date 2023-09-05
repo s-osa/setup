@@ -1,0 +1,68 @@
+- hosts: localhost
+  connection: local
+  become: no
+  tasks:
+    - name: Update homebrew
+      homebrew:
+        update_homebrew: yes
+    - name: Add homebrew taps
+      homebrew_tap:
+        name: '{{ item }}'
+        state: present
+      with_items:
+        - homebrew/cask
+    - name: Install homebrew packages
+      homebrew:
+        name: '{{ item.name }}'
+        state: '{{ item.state | default("present") }}'
+      with_items:
+        - name: fish
+        - name: ghq
+        - name: git
+        - name: peco
+        - name: tmux
+        - name: tree
+        - name: vim
+        - name: watch
+    - name: Install homebrew cask packages
+      community.general.homebrew_cask:
+        name: '{{ item.name }}'
+        state: present
+        install_options: 'appdir=/Applications'
+        accept_external_apps: true
+      with_items:
+        - name: 1password
+        - name: alfred
+        - name: authy
+        #- name: atok (installed app does not work)
+        - name: bettertouchtool
+        - name: choosy
+        - name: discord
+        - name: firefox
+        - name: google-chrome
+        - name: jetbrains-toolbox
+        - name: obsidian
+        - name: slack
+        - name: spotify
+        - name: swinsian
+        - name: todoist
+        #- name: zoom
+    - name: Clone dotfiles
+      ansible.builtin.git:
+        repo: https://github.com/s-osa/dotfiles.git
+        dest: '{{ ansible_env.HOME }}/src/s-osa/dotfiles'
+    - name: Generate dotfile symlinks
+      file:
+        src: '{{ ansible_env.HOME}}/src/s-osa/dotfiles/home/{{ item.path }}'
+        dest: '{{ ansible_env.HOME}}/{{ item.path }}'
+        state: link
+        force: yes
+      with_items:
+        - path: '.config'
+        - path: '.gitconfig'
+        - path: '.gitconfig.local'
+        - path: '.gitconfig.agrigate'
+        - path: '.gitignore'
+        - path: '.ideavimrc'
+        - path: '.tmux.conf'
+        - path: '.vimrc'
