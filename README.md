@@ -1,6 +1,6 @@
 ## Setup
 
-Install apps and [dotfiles](https://github.com/s-osa/setup.git).
+Install apps and [dotfiles](https://github.com/s-osa/dotfiles).
 
 1. Install homebrew
 1. `brew install ansible`
