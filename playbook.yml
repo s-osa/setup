@@ -19,6 +19,7 @@
         - name: fish
         - name: ghq
         - name: git
+        - name: mas # Install App Store apps from CLI
         - name: peco
         - name: tmux
         - name: tree
@@ -47,6 +48,11 @@
         - name: swinsian
         - name: todoist
         #- name: zoom
+    - name: Install App Store apps
+      community.general.mas:
+        id:
+          - 539883307 # LINE
+        state: present
     - name: Clone dotfiles
       ansible.builtin.git:
         repo: https://github.com/s-osa/dotfiles.git
