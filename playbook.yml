@@ -39,14 +39,18 @@
         - name: bettertouchtool
         - name: choosy
         - name: discord
+        - name: dropbox
         - name: firefox
         - name: google-chrome
         - name: jetbrains-toolbox
+        - name: karabiner-elements
         - name: obsidian
         - name: slack
         - name: spotify
         - name: swinsian
+        - name: tageditor
         - name: todoist
+        - name: xld # X Lossless Decoder
         #- name: zoom
     - name: Install App Store apps
       community.general.mas:
