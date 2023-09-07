@@ -55,6 +55,7 @@
     - name: Install App Store apps
       community.general.mas:
         id:
+          - 1452453066 # Hidden Bar
           - 539883307 # LINE
         state: present
     - name: Clone dotfiles
