@@ -17,6 +17,7 @@
         state: '{{ item.state | default("present") }}'
       with_items:
         - name: fish
+        - name: gh
         - name: ghq
         - name: git
         - name: mas # Install App Store apps from CLI
