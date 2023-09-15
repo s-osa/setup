@@ -35,6 +35,7 @@
       with_items:
         - name: 1password
         - name: alfred
+        - name: anki
         - name: authy
         #- name: atok (installed app does not work)
         - name: bettertouchtool
