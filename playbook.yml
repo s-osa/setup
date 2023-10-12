@@ -48,6 +48,7 @@
         - name: jetbrains-toolbox
         - name: karabiner-elements
         - name: obsidian
+        - name: scrivener
         - name: slack
         - name: spotify
         - name: swinsian
