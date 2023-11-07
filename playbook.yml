@@ -54,6 +54,7 @@
         - name: swinsian
         - name: tageditor
         - name: todoist
+        - name: visual-studio-code
         - name: xld # X Lossless Decoder
         #- name: zoom
     - name: Install App Store apps
