@@ -21,6 +21,8 @@
         - name: ghq
         - name: git
         - name: mas # Install App Store apps from CLI
+        - name: mecab
+        - name: mecab-ipadic
         - name: peco
         - name: sqldef/sqldef/psqldef
         - name: rename
