@@ -16,6 +16,7 @@
         name: '{{ item.name }}'
         state: '{{ item.state | default("present") }}'
       with_items:
+        - name: ffmpeg
         - name: fish
         - name: gh
         - name: ghq
