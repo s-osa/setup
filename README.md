@@ -6,6 +6,7 @@ Install apps and [dotfiles](https://github.com/s-osa/dotfiles).
 
 - zsh
 - git
+- homebrew
 - Login to App Store
 
 ### Initialize
