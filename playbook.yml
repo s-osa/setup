@@ -20,6 +20,7 @@
         - path: '.ideavimrc'
         - path: '.tmux.conf'
         - path: '.vimrc'
+        - path: '.zprofile'
     - name: Update homebrew
       homebrew:
         update_homebrew: yes
