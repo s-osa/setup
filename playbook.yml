@@ -2,80 +2,14 @@
   connection: local
   become: no
   tasks:
-    - name: Update homebrew
-      homebrew:
-        update_homebrew: yes
-    - name: Add homebrew taps
-      homebrew_tap:
-        name: '{{ item }}'
-        state: present
-      with_items:
-        - homebrew/cask
-    - name: Install homebrew packages
-      homebrew:
-        name: '{{ item.name }}'
-        state: '{{ item.state | default("present") }}'
-      with_items:
-        - name: ffmpeg
-        - name: fish
-        - name: gh
-        - name: ghq
-        - name: git
-        - name: mas # Install App Store apps from CLI
-        - name: mecab
-        - name: mecab-ipadic
-        - name: peco
-        - name: sqldef/sqldef/psqldef
-        - name: rename
-        - name: tmux
-        - name: tree
-        - name: vim
-        - name: watch
-        - name: watchman
-    - name: Install homebrew cask packages
-      community.general.homebrew_cask:
-        name: '{{ item.name }}'
-        state: present
-        install_options: 'appdir=/Applications'
-        accept_external_apps: true
-      with_items:
-        - name: 1password
-        - name: alfred
-        - name: anki
-        - name: authy
-        #- name: atok (installed app does not work)
-        - name: bettertouchtool
-        - name: choosy
-        - name: discord
-        - name: dropbox
-        - name: firefox
-        - name: google-chrome
-        - name: jetbrains-toolbox
-        - name: karabiner-elements
-        - name: obsidian
-        - name: scrivener
-        - name: slack
-        - name: spotify
-        - name: swinsian
-        - name: tageditor
-        - name: todoist
-        - name: visual-studio-code
-        - name: xld # X Lossless Decoder
-        #- name: zoom
-    - name: Install App Store apps
-      community.general.mas:
-        id:
-          - 1452453066 # Hidden Bar
-          - 539883307 # LINE
-        state: present
     - name: Clone dotfiles
       ansible.builtin.git:
         repo: https://github.com/s-osa/dotfiles.git
-        dest: '{{ ansible_env.HOME }}/src/github.com/s-osa/dotfiles'
+        dest: '{{ansible_env.HOME}}/src/github.com/s-osa/dotfiles'
     - name: Generate dotfile symlinks
       file:
-        src: '{{ ansible_env.HOME}}/src/github.com/s-osa/dotfiles/home/{{ item.path }}'
-        dest: '{{ ansible_env.HOME}}/{{ item.path }}'
+        src: '{{ansible_env.HOME}}/src/github.com/s-osa/dotfiles/home/{{item.path}}'
+        dest: '{{ansible_env.HOME}}/{{item.path}}'
         state: link
         force: yes
       with_items:
@@ -86,3 +20,60 @@
         - path: '.ideavimrc'
         - path: '.tmux.conf'
         - path: '.vimrc'
+    - name: Update homebrew
+      homebrew:
+        update_homebrew: yes
+    - name: Add homebrew taps
+      homebrew_tap:
+        name: '{{item}}'
+        state: present
+      with_items:
+        - homebrew/cask
+    - name: Install homebrew packages
+      homebrew:
+        name: '{{item.name}}'
+        state: '{{item.state | default("present")}}'
+      with_items:
+        - name: ffmpeg
+        - name: gh
+        - name: ghq
+        - name: git
+        - name: mas # Install App Store apps from CLI
+        - name: peco
+        - name: tmux
+        - name: tree
+        - name: vim
+        - name: watch
+    - name: Install homebrew cask packages
+      community.general.homebrew_cask:
+        name: '{{item.name}}'
+        state: present
+        install_options: 'appdir=/Applications'
+        accept_external_apps: true
+      with_items:
+        - name: 1password
+        - name: alfred
+        - name: anki
+        #- name: atok (installed app does not work)
+        - name: bettertouchtool
+        - name: choosy
+        - name: discord
+        - name: dropbox
+        - name: firefox
+        - name: google-chrome
+        - name: jetbrains-toolbox
+        - name: karabiner-elements
+        - name: obsidian
+        - name: slack
+        - name: spotify
+        - name: swinsian
+        - name: tageditor
+        - name: todoist
+        - name: xld # X Lossless Decoder
+        #- name: zoom
+    - name: Install App Store apps
+      community.general.mas:
+        id:
+          - 1452453066 # Hidden Bar
+          - 539883307 # LINE
+        state: present
