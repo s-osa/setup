@@ -1,0 +1,20 @@
+---
+- name: Clone dotfiles
+  ansible.builtin.git:
+    repo: https://github.com/s-osa/dotfiles.git
+    dest: '{{ansible_env.HOME}}/src/github.com/s-osa/dotfiles'
+- name: Generate dotfile symlinks
+  file:
+    src: '{{ansible_env.HOME}}/src/github.com/s-osa/dotfiles/home/{{item.path}}'
+    dest: '{{ansible_env.HOME}}/{{item.path}}'
+    state: link
+    force: yes
+  with_items:
+    - path: '.config'
+    - path: '.gitconfig'
+    - path: '.gitconfig.agrigate'
+    - path: '.gitignore'
+    - path: '.ideavimrc'
+    - path: '.tmux.conf'
+    - path: '.vimrc'
+    - path: '.zprofile'
