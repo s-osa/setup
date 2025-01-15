@@ -2,5 +2,6 @@
   connection: local
   become: no
   roles:
+    - system_settings
     - dotfiles
     - apps
