@@ -52,6 +52,10 @@
       key: location
       type: string
       value: "~/screenshots"
+    - domain: screencapture
+      key: show-thumbnail
+      type: bool
+      value: false
     - domain: Terminal
       key: "Default Window Settings"
       type: string
