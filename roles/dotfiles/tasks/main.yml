@@ -10,6 +10,7 @@
     state: link
     force: yes
   with_items:
+    - path: '.btt_autoload_preset.json'
     - path: '.config'
     - path: '.gitconfig'
     - path: '.gitconfig.agrigate'
