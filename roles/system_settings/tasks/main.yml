@@ -12,6 +12,9 @@
     - key: AppleTemperatureUnit
       type: string
       value: Celsius
+    - key: AppleShowAllExtensions
+      type: bool
+      value: true
     - key: com.apple.trackpad.scaling
       type: float
       value: 3
