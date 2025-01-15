@@ -1,4 +1,8 @@
 ---
+- name: Generate directories
+  file:
+    path: "~/screenshots"
+    state: directory
 - name: Set 'Apple Global Domain' config
   osx_defaults:
     host: "{{ item.host | default() }}"
@@ -44,11 +48,15 @@
       key: orientation
       type: string
       value: right
-    - domain: dock
-      key: tilesize
-      type: float
-      value: 50
+    - domain: screencapture
+      key: location
+      type: string
+      value: "~/screenshots"
     - domain: Terminal
       key: "Default Window Settings"
       type: string
       value: Pro
+    - domain: dock
+      key: tilesize
+      type: float
+      value: 40
