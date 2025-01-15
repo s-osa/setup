@@ -19,3 +19,4 @@
     - path: '.tmux.conf'
     - path: '.vimrc'
     - path: '.zprofile'
+    - path: '.zshrc'
