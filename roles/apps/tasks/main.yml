@@ -17,6 +17,7 @@
     - name: tree
     - name: vim
     - name: watch
+    - name: zellij
 - name: Install homebrew cask packages
   community.general.homebrew_cask:
     name: '{{item.name}}'
