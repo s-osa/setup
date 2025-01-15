@@ -45,6 +45,10 @@
       type: string
       value: scale
     - domain: dock
+      key: mru-spaces
+      type: bool
+      value: false
+    - domain: dock
       key: orientation
       type: string
       value: right
