@@ -25,6 +25,7 @@
     accept_external_apps: true
   with_items:
     - name: 1password
+    - name: alacritty
     - name: alfred
     - name: anki
     #- name: atok (installed app does not work)
