@@ -27,6 +27,8 @@
     accept_external_apps: true
   with_items:
     - name: 1password
+    - name: affinity-designer
+    - name: affinity-photo
     - name: alacritty
     - name: alfred
     - name: anki
