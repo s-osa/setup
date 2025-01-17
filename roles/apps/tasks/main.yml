@@ -11,6 +11,7 @@
     - name: gh
     - name: ghq
     - name: git
+    - name: json5
     - name: mas # Install App Store apps from CLI
     - name: peco
     - name: tmux
