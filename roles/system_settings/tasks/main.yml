@@ -40,6 +40,22 @@
     value: "{{ item.value | default() }}"
   register: defaults_out
   with_items:
+    - domain: controlcenter
+      key: "NSStatusItem Visible Battery"
+      type: bool
+      value: true
+    - domain: controlcenter
+      key: "NSStatusItem Visible Bluetooth"
+      type: bool
+      value: true
+    - domain: controlcenter
+      key: "NSStatusItem Visible Clock"
+      type: bool
+      value: true
+    - domain: controlcenter
+      key: "NSStatusItem Visible WiFi"
+      type: bool
+      value: true
     - domain: dock
       key: mineffect
       type: string
@@ -52,6 +68,10 @@
       key: orientation
       type: string
       value: right
+    - domain: menuextra.clock
+      key: ShowSeconds
+      type: bool
+      value: true
     - domain: screencapture
       key: location
       type: string
