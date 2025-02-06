@@ -68,6 +68,10 @@
       key: orientation
       type: string
       value: right
+    - domain: dock
+      key: wvous-br-corner
+      type: int
+      value: 1
     - domain: menuextra.clock
       key: ShowSeconds
       type: bool
