@@ -7,7 +7,6 @@
     name: '{{item.name}}'
     state: '{{item.state | default("present")}}'
   with_items:
-    - name: ffmpeg
     - name: gh
     - name: ghq
     - name: git
@@ -15,7 +14,6 @@
     - name: mas # Install App Store apps from CLI
     - name: peco
     - name: starship
-    - name: tmux
     - name: tree
     - name: vim
     - name: watch
@@ -42,7 +40,6 @@
     - name: google-chrome
     - name: jetbrains-toolbox
     - name: karabiner-elements
-    - name: obsidian
     - name: slack
     - name: spotify
     - name: swinsian
