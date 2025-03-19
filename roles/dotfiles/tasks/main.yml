@@ -4,7 +4,7 @@
     repo: https://github.com/s-osa/dotfiles.git
     dest: '{{ansible_env.HOME}}/src/github.com/s-osa/dotfiles'
 - name: Generate dotfile symlinks
-  file:
+  ansible.builtin.file:
     src: '{{ansible_env.HOME}}/src/github.com/s-osa/dotfiles/home/{{item.path}}'
     dest: '{{ansible_env.HOME}}/{{item.path}}'
     state: link
@@ -18,5 +18,11 @@
     - path: '.ideavimrc'
     - path: '.tmux.conf'
     - path: '.vimrc'
+- name: Copy sample files to be edited and not managed by dotfiles repo
+  ansible.builtin.copy:
+    src: '{{ansible_env.HOME}}/src/github.com/s-osa/dotfiles/home/{{item.path}}.sample'
+    dest: '{{ansible_env.HOME}}/{{item.path}}'
+    force: no
+  with_items:
     - path: '.zprofile'
     - path: '.zshrc'
